@@ -108,10 +108,11 @@ class Song:
         return f"{self.track_name} by {self.artist_name} ({self.status})"
 
     def __repr__(self):
+        duration_str = f' [{self.duration}s]' if self.duration else ''
         if self.album_name:
-            return f"[{self.song_id}] {self.track_name} by {self.artist_name} in album {self.album_name} ({self.status}){f' [{self.duration}s]' if self.duration else ""}"
+            return f"[{self.song_id}] {self.track_name} by {self.artist_name} in album {self.album_name} ({self.status}){duration_str}"
         else:
-            return f"[{self.song_id}] {self.track_name} by {self.artist_name} ({self.status}){f' [{self.duration}s]' if self.duration else ""}"
+            return f"[{self.song_id}] {self.track_name} by {self.artist_name} ({self.status}){duration_str}"
 
     def __eq__(self, other):
         if not isinstance(other, Song):
